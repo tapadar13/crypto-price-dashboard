@@ -1,7 +1,40 @@
+import { useState } from "react";
+import useBitcoinData from "../hooks/useBitcoinData";
+import PriceDisplay from "./PriceDisplay";
+import TabMenu from "./TabMenu";
+import TimeFrameSelector from "./TimeFrameSelector";
+import Chart from "./Chart";
+
 const CryptoChart = () => {
+  const [activeTab, setActiveTab] = useState("Chart");
+  const [timeFrame, setTimeFrame] = useState("1w");
+  const { data, loading, error } = useBitcoinData(timeFrame);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  const currentPrice = data[data.length - 1]?.price || 0;
+  const previousPrice = data[0]?.price || 0;
+  const priceChange = currentPrice - previousPrice;
+  const priceChangePercent = previousPrice
+    ? (priceChange / previousPrice) * 100
+    : 0;
+
   return (
-    <div className="p-8 bg-white">
-      <h1>Crypto Price Dashboard</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="p-8 bg-[#FFFFFF] w-[1000px] h-[789px] -top-2 -left-6 gap-0 opacity-1 shadow-lg rounded-lg">
+        <PriceDisplay
+          price={currentPrice}
+          change={priceChange}
+          changePercent={priceChangePercent}
+        />
+        <TabMenu activeTab={activeTab} onTabChange={setActiveTab} />
+        <TimeFrameSelector
+          activeTimeFrame={timeFrame}
+          onTimeFrameChange={setTimeFrame}
+        />
+        <Chart data={data} />
+      </div>
     </div>
   );
 };
