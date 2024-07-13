@@ -8,10 +8,17 @@ import Chart from "./Chart";
 const CryptoChart = () => {
   const [activeTab, setActiveTab] = useState("Chart");
   const [timeFrame, setTimeFrame] = useState("1w");
-  const { data, loading, error } = useBitcoinData(timeFrame);
+  const { data, loading, error, LoadingComponent, ErrorComponent } =
+    useBitcoinData(timeFrame);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <LoadingComponent />
+      </div>
+    );
+  }
+  if (error) return ErrorComponent;
 
   const currentPrice = data[data.length - 1]?.price || 0;
   const previousPrice = data[0]?.price || 0;

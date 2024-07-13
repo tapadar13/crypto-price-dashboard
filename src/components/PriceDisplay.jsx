@@ -15,7 +15,7 @@ const PriceDisplay = ({ price, change, changePercent }) => (
         change >= 0 ? "text-[#25A764]" : "text-red-500"
       }`}
     >
-      {change >= 0 ? "+" : "-"}
+      {change >= 0 ? "+ " : "- "}
       {formatCurrency(Math.abs(change))} ({formatPercentage(changePercent)})
     </p>
   </div>
