@@ -1,7 +1,7 @@
 const TabMenu = ({ activeTab, onTabChange }) => {
   const tabs = ["Summary", "Chart", "Statistics", "Analysis", "Settings"];
   return (
-    <div className="flex space-x-10 mt-10 mb-6 border-b border-gray-200">
+    <div className="flex space-x-10 mt-10 mb-6 font-circular font-normal border-b border-gray-200 w-[78px] top-[200px] text-[18px] leading-[22.77px] text-left">
       {tabs.map((tab) => (
         <button
           key={tab}

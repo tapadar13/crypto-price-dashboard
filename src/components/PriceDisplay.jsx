@@ -1,15 +1,17 @@
 import { formatCurrency, formatPercentage } from "../utils/formatting";
 
 const PriceDisplay = ({ price, change, changePercent }) => (
-  <div className="mt-10 ml-10">
+  <div className="mt-10">
     <div className="flex items-baseline">
-      <h1 className="text-7xl leading-tight font-normal text-[#1E2B45]">
+      <h1 className="text-[70px] font-normal text-[#1A2433] font-circular leading-[88.56px]">
         {formatCurrency(price)}
       </h1>
-      <span className="ml-2 text-2xl text-[#6F7177]">USD</span>
+      <span className="ml-2 text-[24px] text-[#b5b7be] self-start mt-4 w-[49px] h-[30px] top-[77px] left-[337px] font-circular font-normal leading-[30.36px] text-left">
+        USD
+      </span>
     </div>
     <p
-      className={`text-lg leading-snug ${
+      className={`text-lg leading-[22.77px] mt-2 text-left font-circular font-normal ${
         change >= 0 ? "text-[#25A764]" : "text-red-500"
       }`}
     >

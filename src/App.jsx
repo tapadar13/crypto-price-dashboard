@@ -1,4 +1,5 @@
 import CryptoChart from "./components/CryptoChart";
+import "./fonts.css";
 
 function App() {
   return (

@@ -6,17 +6,9 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { formatCurrency } from "../utils/formatting";
 
-const formatCurrency = (value) => {
-  return value.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
-};
-
-const CustomTooltip = ({ active, payload, label }) => {
+const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-[#1E2B45] text-white p-2 rounded">
@@ -50,15 +42,17 @@ const Chart = ({ data }) => {
         </LineChart>
       </ResponsiveContainer>
       <div
-        className="absolute bg-[#4B40EE] text-white px-3 py-1 rounded"
+        className="absolute bg-[#4B40EE] text-white px-3 py-2 h-[33px] rounded flex items-center justify-center"
         style={{ right: 0, bottom: 0 }}
       >
-        <span className="text-sm">
+        <span className="text-sm w-full text-center">
           {formatCurrency(data[data.length - 1]?.price)}
         </span>
       </div>
-      <div className="absolute top-2 right-0 bg-[#1E2B45] text-white px-3 py-1 rounded">
-        <span className="text-sm">{formatCurrency(data[0]?.price)}</span>
+      <div className="absolute top-2 right-0 bg-[#1A243A] text-white px-3 py-2 h-[33px] rounded flex items-center justify-center">
+        <span className="text-sm w-full text-center">
+          {formatCurrency(data[0]?.price)}
+        </span>
       </div>
     </div>
   );

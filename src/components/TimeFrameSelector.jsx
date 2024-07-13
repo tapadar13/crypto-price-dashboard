@@ -3,8 +3,8 @@ import { Maximize2, CirclePlus } from "lucide-react";
 const TimeFrameSelector = ({ activeTimeFrame, onTimeFrameChange }) => {
   const timeFrames = ["1d", "3d", "1w", "1m", "6m", "1y", "max"];
   return (
-    <div className="flex items-center justify-between mt-4">
-      <div className="flex space-x-4 items-center">
+    <div className="flex items-center justify-between mt-14 font-circular font-normal">
+      <div className="flex space-x-8 items-center">
         <button className="flex items-center space-x-2 text-[#6F7177]">
           <Maximize2
             width="24px"
