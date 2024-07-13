@@ -29,17 +29,19 @@ const CryptoChart = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="p-8 bg-[#FFFFFF] w-[1000px] h-[789px] -top-2 -left-6 gap-0 opacity-1 shadow-lg rounded-lg">
+      <div className="p-8 bg-[#FFFFFF] w-[1000px] h-[789px] shadow-lg rounded-lg">
         <PriceDisplay
           price={currentPrice}
           change={priceChange}
           changePercent={priceChangePercent}
         />
         <TabMenu activeTab={activeTab} onTabChange={setActiveTab} />
-        <TimeFrameSelector
-          activeTimeFrame={timeFrame}
-          onTimeFrameChange={setTimeFrame}
-        />
+        <div className="relative">
+          <TimeFrameSelector
+            activeTimeFrame={timeFrame}
+            onTimeFrameChange={setTimeFrame}
+          />
+        </div>
         <Chart data={data} />
       </div>
     </div>

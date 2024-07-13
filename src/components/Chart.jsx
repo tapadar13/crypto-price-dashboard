@@ -29,7 +29,7 @@ const Chart = ({ data }) => {
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={data}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 20, right: 100, left: 20, bottom: 5 }}
         >
           <XAxis
             dataKey="date"
@@ -56,12 +56,12 @@ const Chart = ({ data }) => {
           />
         </LineChart>
       </ResponsiveContainer>
-      <div className="absolute bg-[#4B40EE] text-white px-3 py-2 h-[33px] right-0 top-[100px] rounded flex items-center justify-center">
+      <div className="absolute bg-[#4B40EE] text-white px-3 py-2 h-[33px] right-0 top-[100px] -translate-y-1/2 rounded flex items-center justify-center">
         <span className="text-sm w-full text-center">
           {formatCurrency(data[data.length - 1]?.price)}
         </span>
       </div>
-      <div className="absolute top-2 right-0 bg-[#1A243A] text-white px-3 py-2 h-[33px] rounded flex items-center justify-center">
+      <div className="absolute top-0 right-0 bg-[#1A243A] text-white px-3 py-2 h-[33px] rounded flex items-center justify-center">
         <span className="text-sm w-full text-center">
           {formatCurrency(maxPrice)}
         </span>

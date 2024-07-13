@@ -9,7 +9,7 @@ const TimeFrameSelector = ({ activeTimeFrame, onTimeFrameChange }) => {
           <Maximize2
             width="24px"
             height="24px"
-            style={{ top: "330px", left: "60px", gap: "0px", opacity: "0px" }}
+            // style={{ top: "330px", left: "60px", gap: "0px", opacity: "0px" }}
           />
           <span className="text-[18px] leading-[22.77px]">Fullscreen</span>
         </button>
@@ -17,7 +17,7 @@ const TimeFrameSelector = ({ activeTimeFrame, onTimeFrameChange }) => {
           <CirclePlus
             width="24px"
             height="24px"
-            style={{ top: "330px", left: "208px", gap: "0px", opacity: "0px" }}
+            // style={{ top: "330px", left: "208px", gap: "0px", opacity: "0px" }}
           />
           <span className="text-[18px] leading-[22.77px]">Compare</span>
         </button>
